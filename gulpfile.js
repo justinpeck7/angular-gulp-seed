@@ -6,7 +6,8 @@ var gulp = require('gulp'),
     config = require('./build/config'),
     sequence = require('run-sequence'),
     concatCss = require('gulp-concat-css'),
-    connect = require('gulp-connect');
+    connect = require('gulp-connect'),
+    open = require('gulp-open');
 
 const targetAngular = './target/assets/angular.min.js',
     allSource = [
@@ -125,6 +126,12 @@ gulp.task('serve', function() {
         root: './target',
         livereload: true
     });
+
+    return gulp.src('./target/index.html')
+        .pipe(open({
+            uri: 'http://localhost:8080',
+            app: 'chrome'
+        }));
 });
 
 gulp.task('reload', ['build:livereload'], function() {
