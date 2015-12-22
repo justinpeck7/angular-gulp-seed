@@ -2,7 +2,6 @@
   "name": "angular-seed",
   "version": "1.0.0",
   "description": "Seed project for angular apps",
-  "main": "app.js",
   "author": "Justin Peck",
   "license": "ISC",
   "dependencies": {
