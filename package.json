@@ -1,0 +1,22 @@
+{
+  "name": "angular-seed",
+  "version": "1.0.0",
+  "description": "Seed project for angular apps",
+  "main": "app.js",
+  "author": "Justin Peck",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-resource": "^1.4.8",
+    "angular-ui-router": "^0.2.15",
+    "bootstrap": "^3.3.6",
+    "chalk": "^1.1.1",
+    "gulp": "^3.9.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-concat-css": "^2.2.0",
+    "gulp-connect": "^2.3.1",
+    "gulp-inject": "^3.0.0",
+    "run-sequence": "^1.1.5"
+  }
+}
