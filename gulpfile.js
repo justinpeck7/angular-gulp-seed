@@ -7,22 +7,14 @@ var gulp = require('gulp'),
     sequence = require('run-sequence'),
     concatCss = require('gulp-concat-css'),
     connect = require('gulp-connect'),
-    open = require('gulp-open');
+    gOpen = require('gulp-open');
 
-const targetAngular = './target/assets/angular.min.js',
-    allSource = [
-        './src/*.css',
-        './src/*.js',
-        './src/*.html',
-        './src/*/**.js',
-        './src/*/**.css',
-        './src/*/**.html'
-    ],
-    injectOrder = [
-        targetAngular,
+const injectOrder = [
+        './target/assets/angular.min.js',
         './target/assets/*.js',
         './target/*.js',
-        './target/*/**.js',
+        './target/*/**/*.js',
+        './target/*/*.js',
         './target/*.css',
         './target/*/**.css'
     ];
@@ -45,10 +37,10 @@ gulp.task('copy:asset-scripts', function() {
 gulp.task('copy:asset-styles', function() {
     return gulp.src(config.asset_styles)
         .pipe(gulp.dest('./target/assets'));
-})
+});
 
 gulp.task('copy:source', function() {
-    return gulp.src(['./src/*/**', './src/*.js', './src/*.css'])
+    return gulp.src(['./src/*/**', './src/*.js', './src/*/**/**.js', './src/*.css'])
         .pipe(gulp.dest('./target'));
 });
 
@@ -63,7 +55,7 @@ gulp.task('inject:target', ['copy:source', 'copy:asset-scripts', 'copy:asset-sty
         .pipe(gulp.dest('./target'))
         .on('end', function() {
             console.log(chalk.green('Scripts injected'));
-        })
+        });
 });
 
 gulp.task('default', function() {
@@ -87,7 +79,7 @@ gulp.task('concat-scripts', function() {
         .pipe(concat('main.js'))
         .pipe(gulp.dest('./target/bin'))
         .on('end', function() {
-            console.log(chalk.green('Scripts Concatinated'))
+            console.log(chalk.green('Scripts Concatinated'));
         });
 });
 
@@ -97,7 +89,7 @@ gulp.task('concat-styles', function() {
         .pipe(gulp.dest('./target/bin'))
         .on('end', function() {
             console.log(chalk.green('Styles Concatinated'));
-        })
+        });
 });
 
 gulp.task('inject:release', ['concat-scripts', 'concat-styles'], function() {
@@ -121,14 +113,14 @@ gulp.task('release', function() {
 });
 
 gulp.task('serve', function() {
-    gulp.watch(allSource, ['reload']);
+    gulp.watch(config.src_scripts.concat(config.src_styles), ['reload']);
     connect.server({
         root: './target',
         livereload: true
     });
 
     return gulp.src('./target/index.html')
-        .pipe(open({
+        .pipe(gOpen({
             uri: 'http://localhost:8080',
             app: 'chrome'
         }));

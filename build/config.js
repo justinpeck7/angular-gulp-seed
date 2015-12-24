@@ -1,5 +1,5 @@
 var SRC_SCRIPTS = [
-    './src/app.js', './src/*/**.js'
+    './src/app.js', './src/*/**.js', './src/*/**/*.js'
 ];
 
 var ASSET_SCRIPTS = [
@@ -24,6 +24,8 @@ var SCRIPTS = ASSET_SCRIPTS.concat(SRC_SCRIPTS),
 
 module.exports = {
     scripts: SCRIPTS,
+    src_scripts: SRC_SCRIPTS,
+    src_styles: SRC_STYLES,
     styles: STYLES,
     asset_scripts: ASSET_SCRIPTS,
     asset_styles: ASSET_STYLES

@@ -2,6 +2,7 @@ angular.module('angular-seed', [
     'ui.router',
     'ngResource',
     'ui.bootstrap',
+    'angular-seed.common',
     'angular-seed.home',
     'angular-seed.module'
   ])
