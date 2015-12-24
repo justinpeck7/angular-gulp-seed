@@ -113,7 +113,7 @@ gulp.task('release', function() {
 });
 
 gulp.task('serve', function() {
-    gulp.watch(config.src_scripts.concat(config.src_styles), ['reload']);
+    gulp.watch(config.src_scripts.concat(config.src_styles).concat(['./src/*.html', './src/*/**.html']), ['reload']);
     connect.server({
         root: './target',
         livereload: true
