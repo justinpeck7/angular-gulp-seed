@@ -3,11 +3,11 @@ var SRC_SCRIPTS = [
 ];
 
 var ASSET_SCRIPTS = [
-    './node_modules/angular/angular.min.js',
-    './assets/ui-bootstrap/ui-bootstrap-custom-0.14.3.min.js',
-    './assets/ui-bootstrap/ui-bootstrap-custom-tpls-0.14.3.min.js',
-    './node_modules/angular-resource/angular-resource.min.js',
-    './node_modules/angular-ui-router/release/angular-ui-router.min.js'
+    './node_modules/angular/angular.js',
+    './assets/ui-bootstrap/ui-bootstrap-custom-0.14.3.js',
+    './assets/ui-bootstrap/ui-bootstrap-custom-tpls-0.14.3.js',
+    './node_modules/angular-resource/angular-resource.js',
+    './node_modules/angular-ui-router/release/angular-ui-router.js'
 ];
 
 var SRC_STYLES = [
