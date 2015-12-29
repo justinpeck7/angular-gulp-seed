@@ -1,4 +1,4 @@
-angular.module('angular-seed.common')
+angular.module('my-webapp.common')
 .directive('someDirective', function() {
     return {
         restrict: 'E',

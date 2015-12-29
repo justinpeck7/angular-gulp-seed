@@ -1,5 +1,5 @@
-angular.module('angular-seed.home', [])
-  .config(function($stateProvider) {
+angular.module('my-webapp.home', [])
+  .config(($stateProvider) => {
     $stateProvider.state('home', {
       url: '/',
       controller: 'HomeCtrl',
@@ -7,7 +7,7 @@ angular.module('angular-seed.home', [])
       templateUrl: 'home/home.html'
     });
   })
-  .controller('HomeCtrl', function HomeController() {
+  .controller('HomeCtrl', function() {
     var home = this;
     home.message = 'World';
   });

@@ -1,1 +1,1 @@
-angular.module('angular-seed.common', []);
+angular.module('my-webapp.common', []);

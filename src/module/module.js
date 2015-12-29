@@ -1,5 +1,5 @@
-angular.module('angular-seed.module', [])
-  .config(function($stateProvider) {
+angular.module('my-webapp.module', [])
+  .config(($stateProvider) => {
     $stateProvider.state('search', {
       url: '/module',
       controller: 'ModuleCtrl as module',
@@ -7,6 +7,6 @@ angular.module('angular-seed.module', [])
       templateUrl: 'module/module.html'
     });
   })
-  .controller('ModuleCtrl', function ModuleController() {
+  .controller('ModuleCtrl', function() {
     var module = this;
   });

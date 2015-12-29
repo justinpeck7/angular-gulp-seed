@@ -1,7 +1,7 @@
 {
-  "name": "angular-seed",
+  "name": "angular-gulp-webapp",
   "version": "1.0.0",
-  "description": "Seed project for angular apps",
+  "description": "Simple webapp utilizing gulp and angular",
   "author": "Justin Peck",
   "license": "ISC",
   "dependencies": {

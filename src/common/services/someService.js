@@ -1,4 +1,4 @@
-angular.module('angular-seed.common')
+angular.module('my-webapp.common')
 .service('someService', function() {
     var t = this;
     t.doSomething = function() {
