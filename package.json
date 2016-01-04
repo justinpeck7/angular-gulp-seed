@@ -19,7 +19,6 @@
     "gulp-connect": "^2.3.1",
     "gulp-inject": "^3.0.0",
     "gulp-open": "^1.0.0",
-    "gulp-uglify": "^1.5.1",
     "gulp-uglifycss": "^1.0.5",
     "run-sequence": "^1.1.5"
   }

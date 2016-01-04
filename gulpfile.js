@@ -3,8 +3,6 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     chalk = require('chalk'),
     clean = require('gulp-clean'),
-    uglify = require('gulp-uglify'),
-    uglifycss = require('gulp-uglifycss'),
     config = require('./build/config'),
     sequence = require('run-sequence'),
     concatCss = require('gulp-concat-css'),
@@ -20,7 +18,7 @@ release - build minfied app in /target/bin
 */
 
 const injectOrder = [
-    './target/assets/angular.js',
+    './target/assets/angular.min.js',
     './target/assets/*.js',
     './target/*.js',
     './target/*/**/*.js',
@@ -50,7 +48,7 @@ gulp.task('copy:asset-styles', function() {
 });
 
 gulp.task('copy:source', function() {
-    return gulp.src(['./src/*/**', './src/*.js', './src/*/**/**.js', './src/*.css'])
+    return gulp.src(['./src/app/**', './src/app/*.js', './src/app/*/**/**.js', './src/app/*.css'])
         .pipe(gulp.dest('./target'));
 });
 
@@ -102,21 +100,7 @@ gulp.task('concat-styles', function() {
         });
 });
 
-gulp.task('uglify-scripts', ['concat-scripts'], function() {
-    return gulp.src('./target/bin/main.js')
-        .pipe(uglify({
-            mangle: false
-        }))
-        .pipe(gulp.dest('./target/bin'));
-});
-
-gulp.task('uglify-styles', ['concat-styles'], function() {
-    return gulp.src('./target/bin/main.css')
-        .pipe(uglifycss())
-        .pipe(gulp.dest('./target/bin'));
-});
-
-gulp.task('inject:release', ['uglify-scripts', 'uglify-styles'], function() {
+gulp.task('inject:release', ['concat-scripts', 'concat-styles'], function() {
     gulp.src('./src/index.html')
         .pipe(inject(gulp.src(['./target/bin/*.css', 'target/bin/*.js'], {
             read: false
@@ -137,7 +121,7 @@ gulp.task('release', function() {
 });
 
 gulp.task('serve', function() {
-    gulp.watch(config.src_scripts.concat(config.src_styles).concat(['./src/*.html', './src/*/**.html']), ['reload']);
+    gulp.watch(config.src_scripts.concat(config.src_styles).concat(['./src/*.html', './src/app/*/**.html']), ['reload']);
     connect.server({
         root: './target',
         livereload: true
